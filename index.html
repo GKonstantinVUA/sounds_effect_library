@@ -7,7 +7,7 @@
 	<meta name="format-detection" content="telephone=no">
 	<meta name="description" content="Author: Garshin K. V. Enter Sound Effects Library">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240608134359">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240608151324">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,7 +37,7 @@
 							<a href="" class="header__link">FAQ</a>
 						</li>
 					</ul>
-					<button type="button" class="header__btn-login" arial-label="Login Form">Login</button>
+					<button type="button" class="header__btn-login">Login</button>
 				</nav>
 			</div>
 		</header>
@@ -53,7 +53,7 @@
 
 					<form class="hero__form-search" action="#" method="GET" enctype="multipart/form-data">
 						<div class="hero__field-inner"><input type="text" class="hero__search-field" name="search-field" placeholder="Search sound effects" required></div>
-						<button type="button" class="hero__btn-field" arial-label="Button Search">e</button>
+						<button type="button" class="hero__btn-field">e</button>
 						<div class="hero__form-parafraph">
 							<p>
 								Try keyword: happy, funny, natural, horror, jumpscare and more
@@ -177,6 +177,7 @@
 						</div>
 
 					</div>
+				</div>
 			</section>
 
 			<!-- TODO Block CATEGORY -->
@@ -184,266 +185,230 @@
 				<div class="category__container frame">
 					<h2 class="frame__title">Browse by category</h2>
 
-					<div class="block block--showmore-block" data-showmore="items">
-						<div class="block__content" data-showmore-content>
-							<!-- *Item #1 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/animal.webp" alt="Animal" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Animal</p>
-								</div>
-							</div>
-							<!-- *Item #2 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/avant_garde.webp" alt="Avant Garde" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Avant Garde</p>
-								</div>
-							</div>
-							<!-- *Item #3 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/bell.webp" alt="Bell" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Bell</p>
-								</div>
-							</div>
-							<!-- *Item #4 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/blues.webp" alt="Blues" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Blues</p>
-								</div>
-							</div>
+					<div class="frame__body">
 
-							<div class="frame__wrap-cell">
-								<img src="img/category/cartoon.webp" alt="Cartoon" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Cartoon</p>
-								</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/animal.webp" alt="Animal" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Animal</p>
 							</div>
-							<!-- *Item #6 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/classic.webp" alt="Classic" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Classic</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/avant_garde.webp" alt="Avant Garde" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Avant Garde</p>
 							</div>
-							<!-- *Item #7 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/country.webp" alt="Country" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Country</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/bell.webp" alt="Bell" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Bell</p>
 							</div>
-							<!-- *Item #8 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/disco.webp" alt="Disco" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Disco</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/blues.webp" alt="Blues" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Blues</p>
 							</div>
-							<!-- *Item #9 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/dub.webp" alt="Dub" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Dub</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/cartoon.webp" alt="Cartoon" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Cartoon</p>
 							</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/classic.webp" alt="Classic" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Classic</p>
+							</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/country.webp" alt="Country" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Country</p>
+							</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/disco.webp" alt="Disco" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Disco</p>
+							</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/dub.webp" alt="Dub" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Dub</p>
+							</div>
+						</div>
 
-							<div class="frame__wrap-cell">
-								<img src="img/category/electronic.webp" alt="Electronic" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Electronic</p>
-								</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/electronic.webp" alt="Electronic" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Electronic</p>
 							</div>
+						</div>
 
-							<div class="frame__wrap-cell">
-								<img src="img/category/emergency.webp" alt="Emergency" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Emergency</p>
-								</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/emergency.webp" alt="Emergency" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Emergency</p>
 							</div>
+						</div>
 
-							<div class="frame__wrap-cell">
-								<img src="img/category/experimental.webp" alt="Experimental" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Experimental</p>
-								</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/experimental.webp" alt="Experimental" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Experimental</p>
 							</div>
-							<!-- *Item #13 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/folk.webp" alt="Folk" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Folk</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/folk.webp" alt="Folk" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Folk</p>
 							</div>
-							<!-- *Item #14 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/hip_hop.webp" alt="Hip Hop" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Hip Hop</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/hip_hop.webp" alt="Hip Hop" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Hip Hop</p>
 							</div>
-							<!-- *Item #15 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/historic.webp" alt="Historic" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Historic</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/historic.webp" alt="Historic" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Historic</p>
 							</div>
-							<!-- *Item #16 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/horror.webp" alt="Horror" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Horror</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/horror.webp" alt="Horror" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Horror</p>
 							</div>
-							<!-- *Item #17 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/industrial.webp" alt="Industrial" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Industrial</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/industrial.webp" alt="Industrial" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Industrial</p>
 							</div>
-							<!-- *Item #18 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/instrumental.webp" alt="Instrumental" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Instrumental</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/instrumental.webp" alt="Instrumental" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Instrumental</p>
 							</div>
-							<!-- *Item #19 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/international.webp" alt="International" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>International</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/international.webp" alt="International" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>International</p>
 							</div>
-							<!-- *Item #20 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/jazz.webp" alt="Jazz" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Jazz</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/jazz.webp" alt="Jazz" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Jazz</p>
 							</div>
-							<!-- *Item #21 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/movie_sound.webp" alt="Movie Sound" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Movie Sound</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/movie_sound.webp" alt="Movie Sound" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Movie Sound</p>
 							</div>
-							<!-- *Item #22 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/musical.webp" alt="Musical" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Musical</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/musical.webp" alt="Musical" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Musical</p>
 							</div>
-							<!-- *Item #23 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/nature.webp" alt="Nature" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Nature</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/nature.webp" alt="Nature" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Nature</p>
 							</div>
-							<!-- *Item #24 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/novelty.webp" alt="Novelty" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Novelty</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/novelty.webp" alt="Novelty" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Novelty</p>
 							</div>
-							<!-- *Item #25 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/pank.webp" alt="Pank" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Pank</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/pank.webp" alt="Pank" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Pank</p>
 							</div>
-							<!-- *Item #26 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/people.webp" alt="People" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>People</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/people.webp" alt="People" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>People</p>
 							</div>
-							<!-- *Item #27 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/pop.webp" alt="Pop" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Pop</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/pop.webp" alt="Pop" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Pop</p>
 							</div>
-							<!-- *Item #28 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/rap.webp" alt="Rap" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Rap</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/rap.webp" alt="Rap" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Rap</p>
 							</div>
-							<!-- *Item #29 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/reggae.webp" alt="Reggae" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Reggae</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/reggae.webp" alt="Reggae" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Reggae</p>
 							</div>
-							<!-- *Item #30 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/relax.webp" alt="Relax" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Relax</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/relax.webp" alt="Relax" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Relax</p>
 							</div>
-							<!-- *Item #31 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/rock.webp" alt="Rock" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Rock</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/rock.webp" alt="Rock" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Rock</p>
 							</div>
-							<!-- *Item #32 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/rock_n_roll.webp" alt="Rock 'n' Roll" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Rock 'n' Roll</p>
-								</div>
+						</div>
+
+						<div class="frame__wrap-cell">
+							<img src="img/category/rock_n_roll.webp" alt="Rock 'n' Roll" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Rock 'n' Roll</p>
 							</div>
-							<!-- *Item #33 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/soul-rnb.webp" alt=" Soul R&B" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p> Soul R&B</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/soul-rnb.webp" alt=" Soul R&B" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p> Soul R&B</p>
 							</div>
-							<!-- *Item #34 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/sound_designs.webp" alt="Sound Designs" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Sound Designs</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/sound_designs.webp" alt="Sound Designs" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Sound Designs</p>
 							</div>
-							<!-- *Item #35 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/spoken.webp" alt="Spoken" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Spoken</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/spoken.webp" alt="Spoken" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Spoken</p>
 							</div>
-							<!-- *Item #36 -->
-							<div class="frame__wrap-cell">
-								<img src="img/category/vehicles.webp" alt="Vehicles" class="frame__trump" width="157" height="117" loading="lazy">
-								<div class="frame__desk">
-									<p>Vehicles</p>
-								</div>
+						</div>
+						<div class="frame__wrap-cell">
+							<img src="img/category/vehicles.webp" alt="Vehicles" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Vehicles</p>
 							</div>
 						</div>
 						<!-- *Item-Button -->
-						<button hidden data-showmore-button type="button" class="block__more">
-							<span>See all category</span>
-							<span>Close</span>
-						</button>
+						<button type="button" class="frame__show-more" aria-label="Button Close/Show More"></button>
 					</div>
 				</div>
 			</section>
@@ -837,7 +802,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20240608134359"></script>
+	<script src="js/app.min.js?_v=20240608151324"></script>
 </body>
 
 </html>

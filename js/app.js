@@ -177,113 +177,6 @@
             }
         }
     }
-    function showMore() {
-        window.addEventListener("load", (function(e) {
-            const showMoreBlocks = document.querySelectorAll("[data-showmore]");
-            let showMoreBlocksRegular;
-            let mdQueriesArray;
-            if (showMoreBlocks.length) {
-                showMoreBlocksRegular = Array.from(showMoreBlocks).filter((function(item, index, self) {
-                    return !item.dataset.showmoreMedia;
-                }));
-                showMoreBlocksRegular.length ? initItems(showMoreBlocksRegular) : null;
-                document.addEventListener("click", showMoreActions);
-                window.addEventListener("resize", showMoreActions);
-                mdQueriesArray = dataMediaQueries(showMoreBlocks, "showmoreMedia");
-                if (mdQueriesArray && mdQueriesArray.length) {
-                    mdQueriesArray.forEach((mdQueriesItem => {
-                        mdQueriesItem.matchMedia.addEventListener("change", (function() {
-                            initItems(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
-                        }));
-                    }));
-                    initItemsMedia(mdQueriesArray);
-                }
-            }
-            function initItemsMedia(mdQueriesArray) {
-                mdQueriesArray.forEach((mdQueriesItem => {
-                    initItems(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
-                }));
-            }
-            function initItems(showMoreBlocks, matchMedia) {
-                showMoreBlocks.forEach((showMoreBlock => {
-                    initItem(showMoreBlock, matchMedia);
-                }));
-            }
-            function initItem(showMoreBlock, matchMedia = false) {
-                showMoreBlock = matchMedia ? showMoreBlock.item : showMoreBlock;
-                let showMoreContent = showMoreBlock.querySelectorAll("[data-showmore-content]");
-                let showMoreButton = showMoreBlock.querySelectorAll("[data-showmore-button]");
-                showMoreContent = Array.from(showMoreContent).filter((item => item.closest("[data-showmore]") === showMoreBlock))[0];
-                showMoreButton = Array.from(showMoreButton).filter((item => item.closest("[data-showmore]") === showMoreBlock))[0];
-                const hiddenHeight = getHeight(showMoreBlock, showMoreContent);
-                if (matchMedia.matches || !matchMedia) if (hiddenHeight < getOriginalHeight(showMoreContent)) {
-                    _slideUp(showMoreContent, 0, showMoreBlock.classList.contains("_showmore-active") ? getOriginalHeight(showMoreContent) : hiddenHeight);
-                    showMoreButton.hidden = false;
-                } else {
-                    _slideDown(showMoreContent, 0, hiddenHeight);
-                    showMoreButton.hidden = true;
-                } else {
-                    _slideDown(showMoreContent, 0, hiddenHeight);
-                    showMoreButton.hidden = true;
-                }
-            }
-            function getHeight(showMoreBlock, showMoreContent) {
-                let hiddenHeight = 0;
-                const showMoreType = showMoreBlock.dataset.showmore ? showMoreBlock.dataset.showmore : "size";
-                const rowGap = parseFloat(getComputedStyle(showMoreContent).rowGap) ? parseFloat(getComputedStyle(showMoreContent).rowGap) : 0;
-                if (showMoreType === "items") {
-                    const showMoreTypeValue = showMoreContent.dataset.showmoreContent ? showMoreContent.dataset.showmoreContent : 2;
-                    const showMoreItems = showMoreContent.children;
-                    for (let index = 1; index < showMoreItems.length; index++) {
-                        const showMoreItem = showMoreItems[index - 1];
-                        const marginTop = parseFloat(getComputedStyle(showMoreItem).marginTop) ? parseFloat(getComputedStyle(showMoreItem).marginTop) : 0;
-                        const marginBottom = parseFloat(getComputedStyle(showMoreItem).marginBottom) ? parseFloat(getComputedStyle(showMoreItem).marginBottom) : 0;
-                        hiddenHeight += showMoreItem.offsetHeight + marginTop;
-                        if (index == showMoreTypeValue) break;
-                        hiddenHeight += marginBottom;
-                    }
-                    rowGap ? hiddenHeight += (showMoreTypeValue - 1) * rowGap : null;
-                } else {
-                    const showMoreTypeValue = showMoreContent.dataset.showmoreContent ? showMoreContent.dataset.showmoreContent : 150;
-                    hiddenHeight = showMoreTypeValue;
-                }
-                return hiddenHeight;
-            }
-            function getOriginalHeight(showMoreContent) {
-                let parentHidden;
-                let hiddenHeight = showMoreContent.offsetHeight;
-                showMoreContent.style.removeProperty("height");
-                if (showMoreContent.closest(`[hidden]`)) {
-                    parentHidden = showMoreContent.closest(`[hidden]`);
-                    parentHidden.hidden = false;
-                }
-                let originalHeight = showMoreContent.offsetHeight;
-                parentHidden ? parentHidden.hidden = true : null;
-                showMoreContent.style.height = `${hiddenHeight}px`;
-                return originalHeight;
-            }
-            function showMoreActions(e) {
-                const targetEvent = e.target;
-                const targetType = e.type;
-                if (targetType === "click") {
-                    if (targetEvent.closest("[data-showmore-button]")) {
-                        const showMoreButton = targetEvent.closest("[data-showmore-button]");
-                        const showMoreBlock = showMoreButton.closest("[data-showmore]");
-                        const showMoreContent = showMoreBlock.querySelector("[data-showmore-content]");
-                        const showMoreSpeed = showMoreBlock.dataset.showmoreButton ? showMoreBlock.dataset.showmoreButton : "500";
-                        const hiddenHeight = getHeight(showMoreBlock, showMoreContent);
-                        if (!showMoreContent.classList.contains("_slide")) {
-                            showMoreBlock.classList.contains("_showmore-active") ? _slideUp(showMoreContent, showMoreSpeed, hiddenHeight) : _slideDown(showMoreContent, showMoreSpeed, hiddenHeight);
-                            showMoreBlock.classList.toggle("_showmore-active");
-                        }
-                    }
-                } else if (targetType === "resize") {
-                    showMoreBlocksRegular && showMoreBlocksRegular.length ? initItems(showMoreBlocksRegular) : null;
-                    mdQueriesArray && mdQueriesArray.length ? initItemsMedia(mdQueriesArray) : null;
-                }
-            }
-        }));
-    }
     function uniqArray(array) {
         return array.filter((function(item, index, self) {
             return self.indexOf(item) === index;
@@ -3819,7 +3712,56 @@
     const marqueeContent = document.querySelector(".slider__body");
     root.style.setProperty("--marquee-elements", marqueeContent.children.length);
     for (let i = 0; i < marqueeElementsDisplayed; i++) marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
+    document.addEventListener("DOMContentLoaded", (function() {
+        const itemsToShow = 6;
+ //!Можна вказати скільки скільки потрібно відображати за замовчуванням
+                const itemArea = document.querySelectorAll(".skills__card-work");
+ //! Яцейка з карткою
+                const showMoreBtn = document.querySelector(".skills__show-more");
+ //! Кнопка яка буде виконувати функції Показати Ще/Сховати. За замовчуванням до неї призначено клас "назва контейнера"__show-more
+                const container = document.querySelector(".skills");
+ //!Загальний контейнер в якому містяться всі картки
+                if (!container || !showMoreBtn || itemArea.length === 0) return;
+ //!Перевірка на елементи які фактично відсутні
+                let itemsShown = itemsToShow;
+ //! Початкова кількість показаних елементів
+                function toggleItems() {
+            if (window.innerWidth <= 5e3) //! Вказати розмір до якого не буде реалізації Показати Ще/Сховати 
+            showMoreBtn.style.display = "block"; //! Показує кнопку, якщо розмір вікна менше ?px
+             else showMoreBtn.style.display = "none";
+ //! Приховує кнопку, якщо розмір вікна більше ?px
+                        if (window.innerWidth <= 5e3) //!Вказати який підходить розмір для приховування 
+            itemArea.forEach(((item, index) => {
+                if (index < itemsShown) item.style.display = "flex"; //! Показуємо елемент якщо потрібний flex, grid вказати flex/grid
+                 else item.style.display = "none";
+ //! Ховається елемент
+                        })); else itemArea.forEach((item => {
+                item.style.display = " block";
+ //! Відображається елемент якщо потрібний flex/grid. Вказати flex/grid
+                        }));
+            //! Перевірка, чи всі елементи вже відображені. Відповідно змінюється текст кнопки 
+                        if (itemsShown === itemArea.length) showMoreBtn.textContent = "Collapse"; //!Додається клас коли картки закінчились
+             else showMoreBtn.textContent = "Explore more projects";
+ //!Клас коли потрібно відорбажати картки
+                }
+        toggleItems();
+ //! Викликаємо перевірку вікна при завантаженні сторінки
+                showMoreBtn.addEventListener("click", (function() {
+            if (itemsShown >= itemArea.length) 
+            //! Якщо всі елементи вже видимі, ховаємо їх по одному, починаючи з останнього
+            itemsShown = itemsToShow; else 
+            //! Якщо ще є елементи, які не відображені, показуємо наступні елементи
+            itemsShown = Math.min(itemsShown + 2, itemArea.length);
+            toggleItems();
+            //! Прокрутка до останнього показаного елемента
+                        if (itemsShown <= itemArea.length) itemArea[itemsShown - 1].scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        }));
+        window.addEventListener("resize", toggleItems);
+ //!Викликаємо перевірку вікна при зміні розміру вікна
+        }));
     window["FLS"] = false;
     spollers();
-    showMore();
 })();
