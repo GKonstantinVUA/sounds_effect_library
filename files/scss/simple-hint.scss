@@ -1,0 +1,376 @@
+/*! Simple Hint v2.0 | Copyright (c) 2014 Catalin Covic | https://github.com/catc */
+
+
+@mixin prefix($name, $argument) {
+	-webkit-#{$name}: #{$argument};
+	-moz-#{$name}: #{$argument};
+	#{$name}: #{$argument};
+}
+@mixin transition($content...) {
+	-webkit-transition : $content;
+	-moz-transition    : $content;
+	transition         : $content;
+}
+@mixin transform ($content...) {
+	-webkit-transform : $content;
+	-moz-transform    : $content;
+	-ms-transform     : $content;
+	transform         : $content;
+}
+@mixin animation($content...) {
+	-webkit-animation : $content;
+	-moz-animation    : $content;
+	animation         : $content;
+}
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+	@-moz-keyframes #{$name} {
+		@content;
+	}
+	@keyframes #{$name} {
+		@content;
+	}
+}
+
+
+
+$default-color: #292929;
+
+[simple-hint] {
+	&:after, &:before {
+		display: inline-block;
+		pointer-events: none;
+		position: absolute;
+		visibility: hidden;
+	}
+
+	&:hover {
+		&:after, &:before {
+			visibility: visible;
+		}
+	}
+
+	&:before {
+		content: "";
+		border: 5px solid transparent;
+		z-index: 9998;
+	}
+
+	&:after {
+		content: attr(simple-hint);
+		text-align: center;
+		padding: 3px 7px;
+		border-radius: 2px;
+		z-index: 9999;
+		color: white;
+		font-weight: 400;
+		white-space: nowrap;
+		font-size: 1.2rem;
+		line-height: 2em;
+
+		background: $default-color;
+	}
+}
+
+// ---- positioning ---- 
+[class*="hint-bottom"], [class*="hint-top"] {
+	&:before {
+		right: 50%;
+		margin-right: -5px;
+	}
+	&:after {
+		left: 50%;
+		@include transform( translateX(-50%));
+	}
+}
+[class*="hint-bottom"] {
+	&:before {
+		border-bottom-color: $default-color;
+		top: 100%;
+	}
+	&:after {
+		margin-top: 10px;
+		top: 100%;
+	}
+}
+[class*="hint-top"] {
+	&:before {
+		border-top-color: $default-color;
+		bottom: 100%;
+	}
+	&:after {
+		bottom: 100%;
+		margin-bottom: 10px;
+	}
+}
+[class*="hint-left"], [class*="hint-right"] {
+	&:before {
+		top: 50%;
+		margin-top: -5px;
+	}
+	&:after {
+		top: 50%;
+		@include transform(translateY(-50%));
+	}
+}
+[class*="hint-left"] {
+	&:before {
+		border-left-color: $default-color;
+		left: 0;
+		margin-left: -10px;
+	}
+	&:after {
+		right: 100%;
+		margin-right: 10px;
+	}
+}
+[class*="hint-right"] {
+	&:before {
+		border-right-color: $default-color;
+		right: 0;
+		margin-right: -10px;
+	}
+	&:after {
+		left: 100%;
+		margin-left: 10px;
+	}
+}
+
+
+// ---- persist ---- 
+.hint-persist {
+	&:before, &:after {
+		visibility: visible;
+	}
+}
+
+
+// ----  mobile ---- 
+[class*="hint-"][class*="-mobile"] {
+	&:after, &:before {
+		@media only screen and (max-width : 768px) { 
+			display: none;
+		}
+		
+	}
+}
+
+
+// ---- sizing ---- 
+[class*="hint-"][class*="-s-small"]:after {
+	width: 200px;
+	white-space: initial;
+}
+[class*="hint-"][class*="-s-med"]:after {
+	width: 300px;
+	white-space: initial;
+}
+[class*="hint-"][class*="-s-big"]:after {
+	width: 450px;
+	white-space: initial;
+}
+
+
+// ---- delay on default hints ---- 
+.hint-d-short {
+	&:hover:after, &:hover:before {
+		@include transition(visibility 0s 0.5s ease);
+	}
+}
+.hint-d-med {
+	&:hover:after, &:hover:before {
+		@include transition(visibility 0s 1s ease);
+	}
+}
+.hint-d-long {
+	&:hover:after, &:hover:before {
+		@include transition(visibility 0s 2s ease);
+	}
+}
+
+
+// ---- fade in + delay ---- 
+[class*="hint-fade"] {
+	// fade in transition
+	&:before, &:after {
+		@include transition(opacity 0.5s ease);
+		opacity: 0;
+	}
+	&:hover:before, &:hover:after{
+		opacity: 1;
+	}
+
+	// delay
+	&[class*="-d-short"] {
+		&:hover:before, &:hover:after {
+			@include prefix(transition-delay, 0.5s)
+		}
+	}
+
+	&[class*="-d-med"] {
+		&:hover:before, &:hover:after {
+			@include prefix(transition-delay, 1s)
+		}
+	}
+
+	&[class*="-d-long"] {
+		&:hover:before, &:hover:after {
+			@include prefix(transition-delay, 2s)
+		}
+	}
+}
+
+
+// ---- animation keyframes ---- 
+@include keyframes(top){
+	from { 
+		bottom: 125%; 
+		opacity: 0;
+	}
+}
+@include keyframes(bottom){
+	from { 
+		top: 125%;
+		opacity: 0;
+	}
+}
+@include keyframes(right){
+	from {
+		margin-right: -35px;
+		margin-left: 35px;
+		opacity: 0;
+	}
+}
+@include keyframes(left){
+	from {
+		margin-left: -35px;
+		margin-right: 35px;
+		opacity: 0;
+	}
+}
+
+// ---- animation + delay ---- 
+[class*="hint-anim"] {
+	&:after, &:before {
+		@include prefix(animation-fill-mode, both);
+		@include prefix(animation-duration, 0.3s);
+		@include prefix(animation-timing-function, ease);
+	}
+
+	// animation
+	&[class*="hint-top"] {
+		&:hover:before, &:hover:after {
+			@include prefix(animation-name, top);
+		}
+	}
+	&[class*="hint-bottom"] {
+		&:hover:before, &:hover:after {
+			@include prefix(animation-name, bottom);
+		}
+	}
+	&[class*="hint-left"] {
+		&:hover:before, &:hover:after {
+			@include prefix(animation-name, left);
+		}
+	}
+	&[class*="hint-right"] {
+		&:hover:before, &:hover:after {
+			@include prefix(animation-name, right);
+		}
+	}
+
+	// delay
+	&[class*="-d-short"] {
+		&:before, &:after {
+			@include prefix(animation-delay, 0.5s);
+		}
+	}
+	&[class*="-d-med"] {
+		&:before, &:after {
+			@include prefix(animation-delay, 1s);
+		}
+	}
+	&[class*="-d-long"] {
+		&:before, &:after {
+			@include prefix(animation-delay, 2s);
+		}
+	}
+}
+
+
+// ---- color types---- 
+$info: #44C2F9;
+$success: #83C510;
+$error: #FF4C4C;
+$notice: #FFAE00;
+
+[class*="hint-"][class*="-t-info"] {
+	&[class*="hint-bottom"]:before{
+		border-bottom-color: $info;
+	}
+	&[class*="hint-top"]:before{
+		border-top-color: $info;
+	}
+	&[class*="hint-right"]:before{
+		border-right-color: $info;
+	}
+	&[class*="hint-left"]:before{
+		border-left-color: $info;
+	} 
+	&:after {
+		background: $info;
+	}
+}
+[class*="hint-"][class*="-t-success"] {
+	&[class*="hint-bottom"]:before{
+		border-bottom-color: $success;
+	}
+	&[class*="hint-top"]:before{
+		border-top-color: $success;
+	}
+	&[class*="hint-right"]:before{
+		border-right-color: $success;
+	}
+	&[class*="hint-left"]:before{
+		border-left-color: $success;
+	} 
+	&:after {
+		background: $success;
+	}
+}
+[class*="hint-"][class*="-t-error"] {
+	&[class*="hint-bottom"]:before{
+		border-bottom-color: $error;
+	}
+	&[class*="hint-top"]:before{
+		border-top-color: $error;
+	}
+	&[class*="hint-right"]:before{
+		border-right-color: $error;
+	}
+	&[class*="hint-left"]:before{
+		border-left-color: $error;
+	} 
+	&:after {
+		background: $error;
+	}
+}
+[class*="hint-"][class*="-t-notice"] {
+	&[class*="hint-bottom"]:before{
+		border-bottom-color: $notice;
+	}
+	&[class*="hint-top"]:before{
+		border-top-color: $notice;
+	}
+	&[class*="hint-right"]:before{
+		border-right-color: $notice;
+	}
+	&[class*="hint-left"]:before{
+		border-left-color: $notice;
+	} 
+	&:after {
+		background: $notice;
+	}
+}

@@ -7,8 +7,9 @@
 	<meta name="format-detection" content="telephone=no">
 	<meta name="description" content="Author: Garshin K. V. Enter Sound Effects Library">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240608151324">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240616232836">
 	<link rel="shortcut icon" href="favicon.ico">
+
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -19,58 +20,4378 @@
 			<div class="header__container">
 				<img src="img/items_svg/logo_waves_co.svg" alt="WavesCo" class="header__logo">
 
-				<nav class="header__wrap-menu">
-					<ul class="header__list">
-						<li class="header__item">
-							<a href="#" class="header__link">Home</a>
-						</li>
-						<li class="header__item">
-							<a href="#" class="header__link">Best for Youtube</a>
-						</li>
-						<li class="header__item">
-							<a href="" class="header__link">Category</a>
-						</li>
-						<li class="header__item">
-							<a href="" class="header__link">Upgrade</a>
-						</li>
-						<li class="header__item">
-							<a href="" class="header__link">FAQ</a>
-						</li>
-					</ul>
-					<button type="button" class="header__btn-login">Login</button>
-				</nav>
+				<div class="header__menu menu">
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+					<nav class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a href="#" class="menu__link" data-goto-header data-goto=".hero">Home</a>
+							</li>
+
+							<li class="menu__item">
+								<a href="#" class="menu__link" data-goto-header data-goto=".tab-best--setup">Best for Youtube</a>
+							</li>
+
+							<li class="menu__item"><a href="#" class="menu__link" data-goto-header data-goto=".category">Category</a></li>
+
+							<li class="menu__item"><a href="#" class="menu__link" data-goto-header data-goto=".download">Upgrade</a></li>
+
+							<li class="menu__item"><a href="#" class="menu__link" data-goto-header data-goto=".footer__container">FAQ</a></li>
+						</ul>
+						<button data-popup="#popup" type="button" class="menu__btn-login">Login</button>
+					</nav>
+				</div>
 			</div>
 		</header>
+		<div id="popup" aria-hidden="true" class="popup">
+			<div class="popup__wrapper">
+				<div class="popup__content">
+					<button data-close type="button" class="popup__close">k</button>
+
+					<div class="popup__text">
+
+						<div class="popup__button-box">
+
+							<div id="btn"></div>
+							<button type="button" class="popup__toogle-btn" onclick="openFormLogin()">Log In</button>
+
+
+							<button type="button" class="popup__toogle-btn" onclick="openFormRegister()">Register</button>
+						</div>
+
+						<div class="popup__social-icons icon">
+							<a href="https://www.facebook.com/" target="_blank" title="Facebook" class="icon__item icon__item--facebook">d</a>
+							<a href="https://twitter.com/" target="_blank" title="Twitter" class="icon__item">i</a>
+							<a href="https://www.google.com/" target="_blank" title="Gmail" class="icon__item">e</a>
+						</div>
+
+						<div id="main-form" class="popup__forms-wrap">
+
+							<form id="login" class="popup__group-form popup__group-form--login" action="#" method="GET" enctype="multipart/form-data">
+								<div class="popup__wrap-data-user">
+									<div class="popup__inner-input">
+										<input type="text" class="popup__inputfield" name="log-in-user-name" placeholder="User Name" required>
+									</div>
+									<div class="popup__inner-input">
+										<input type="text" class="popup__inputfield" name="log-in-password" placeholder="Enter Password" required>
+									</div>
+								</div>
+								<div class="popup__inner">
+									<input id="checkbox-log-in" type="checkbox" class="popup__item-checkbox" name="checkbox-log-in" required>
+									<label for="checkbox-log-in" class="popup__label-log-in">Remember me</label>
+								</div>
+								<div class="popup__btn-wrap">
+									<button type="submit" class="popup__submit-btn">Log In</button>
+								</div>
+							</form>
+
+
+							<form id="register" class="popup__group-form popup__group-form--regester" action="#" method="GET" enctype="multipart/form-data">
+								<div class="popup__wrap-data-user">
+									<div class="popup__inner-input">
+										<input type="text" class="popup__inputfield" name="register-user-name" placeholder="User Name" required>
+									</div>
+									<div class="popup__inner-input">
+										<input type="email" class="popup__inputfield" name="register-email" placeholder="Enter Email" required>
+									</div>
+									<div class="popup__inner-input">
+										<input type="text" class="popup__inputfield" name="register-password" placeholder="Enter Password" required>
+									</div>
+								</div>
+								<div class="popup__inner">
+									<input id="checkbox-register" type="checkbox" class="popup__item-checkbox" name="checkbox-register" required>
+									<label for="checkbox-register" class="popup__register-label">I agree to the terms &amp; conditions</label>
+								</div>
+								<div class="popup__btn-wrap">
+									<button type="submit" class="popup__submit-btn">Register</button>
+								</div>
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
 		<main class="page page--option">
 
 			<!--TODO Block HERO -->
-			<section class="hero hero--setup">
+			<section class="hero hero--setup" data-watch="navigator">
 				<div class="hero__container">
-					<h1 class="hero__main-title">Free download sound effects without copyright</h1>
-					<div class="hero__paragraph">
-						<p>Download free copyright sound effect for your YouTube video and any use.</p>
+					<div class="hero__text-desk">
+						<h1 class="hero__main-title">Free download sound effects without copyright</h1>
+						<div class="hero__paragraph">
+							<p>Download free copyright sound effect for your YouTube video and any use.</p>
+						</div>
 					</div>
 
 					<form class="hero__form-search" action="#" method="GET" enctype="multipart/form-data">
-						<div class="hero__field-inner"><input type="text" class="hero__search-field" name="search-field" placeholder="Search sound effects" required></div>
-						<button type="button" class="hero__btn-field">e</button>
-						<div class="hero__form-parafraph">
-							<p>
-								Try keyword: happy, funny, natural, horror, jumpscare and more
-							</p>
+						<div class="hero__field-inner">
+							<button type="submit" class="hero__btn-field">h</button>
+							<input id="search-field" type="text" class="hero__search-field" name="search-field" placeholder="Search sound effects" required>
 						</div>
+						<label for="search-field" class="hero__label">Try keyword: happy, funny, natural, horror, jumpscare and more</label>
 					</form>
 
 					<div class="hero__main-parag">
-						<p>650.654 Available Sounds. Library Updated Weekly.<a href="#" target="_blank" class="hero__popular-sounds">See popular sounds</a></p>
-
+						<p>650.654 Available Sounds. Library Updated Weekly. <a href="#" target="_blank" class="hero__popular-sounds">See popular sounds</a></p>
 					</div>
 
 				</div>
 			</section>
 
+			<!-- TODO Block BEST -->
+			<section class="tab-best tab-best--setup" data-watch="navigator">
+				<div class="tab-best__container">
+
+					<h2 class="tab-best__title">Best sound effects for youtube videos</h2>
+
+					<div class="tab-best__tabs-box" data-tabs>
+
+						<div class="tab-best__slider swipertab">
+							<nav class="tab-best__navigation-btn tab-best__slide swiper-wrapper" data-tabs-titles>
+								<button type="button" class="tab-best__subcaption _tab-active swiper-slide">All</button>
+								<button type="button" class="tab-best__subcaption swiper-slide">Jumpscare</button>
+								<button type="button" class="tab-best__subcaption swiper-slide">Mellow</button>
+								<button type="button" class="tab-best__subcaption swiper-slide">Happiness</button>
+								<button type="button" class="tab-best__subcaption swiper-slide">Ambience</button>
+								<button type="button" class="tab-best__subcaption swiper-slide">Zonk</button>
+							</nav>
+							<div class="tab-best__btn-best-inner">
+								<button type="button" class="tab-best__button-prev-swiper">a</button>
+								<button type="button" class="tab-best__button-next-swiper">a</button>
+							</div>
+						</div>
+
+						<div class="tab-best__holder" data-tabs-body>
+							<!-- *sounds-block All #1 -->
+							<div class="tab-best__wrap-item" data-tabs-item>
+								<div class="tab-best__section sound" data-showmore="size">
+									<div class="sound__body" data-showmore-content="390">
+										<!-- $sound-cell Mellow	 #1 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Escape Velocity</span>
+													<span class="sound__singer">IamDayLight</span>
+													<span class="sound__time">01:41</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #2 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Cosmic Pulse</span>
+													<span class="sound__singer">Damon Power</span>
+													<span class="sound__time">01:46</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #3 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+
+												<div class="sound__info">
+													<span class="sound__track">Feel the Air</span>
+													<span class="sound__singer">Ikoliks</span>
+													<span class="sound__time">02:05</span>
+												</div>
+
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #4 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+
+												<div class="sound__info">
+													<span class="sound__track">Haymaker</span>
+													<span class="sound__singer">Steven Beddall</span>
+													<span class="sound__time">02:09</span>
+												</div>
+
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #5 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Out of My Head</span>
+													<span class="sound__singer">Letra</span>
+													<span class="sound__time">02:03</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #6 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Monkey Business</span>
+													<span class="sound__singer">Dizzy</span>
+													<span class="sound__time">01:59</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #7 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Break It Down</span>
+													<span class="sound__singer">Ben Fox</span>
+													<span class="sound__time">02:15</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #8 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">So Fresh</span>
+													<span class="sound__singer">Rex Banner</span>
+													<span class="sound__time">02:12</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #9 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Bass in Your Face</span>
+													<span class="sound__singer">SLPSTRM</span>
+													<span class="sound__time">02:32</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #10 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Galaxy Groove</span>
+													<span class="sound__singer">Yarin Primak</span>
+													<span class="sound__time">02:04</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #11 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Beat Blitz</span>
+													<span class="sound__singer">Rewind Kid</span>
+													<span class="sound__time">02:39</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #12 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Busy Day Ahead</span>
+													<span class="sound__singer">MooveKa</span>
+													<span class="sound__time">02:01</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #13 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Monkey Island</span>
+													<span class="sound__singer">Ziv Moran</span>
+													<span class="sound__time">02:03</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #14 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Slaptastic</span>
+													<span class="sound__singer">Steven Beddall</span>
+													<span class="sound__time">02:13</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #15 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Beat Blitz</span>
+													<span class="sound__singer">Sunny Fruit</span>
+													<span class="sound__time">01:31</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow #16 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Astral Dance</span>
+													<span class="sound__singer">Jimit</span>
+													<span class="sound__time">03:01</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+
+										<!-- !sound-cell Ambience	 #1 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Elevate</span>
+													<span class="sound__singer">Letra</span>
+													<span class="sound__time">02:40</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #2 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Culture Shock</span>
+													<span class="sound__singer">Lance Conrad</span>
+													<span class="sound__time">02:02</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #3 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">The Sun Is Out</span>
+													<span class="sound__singer">Seth Parson</span>
+													<span class="sound__time">03:04</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #4 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Poetry in Motion <sup class="sound__uppercase">new</sup></span>
+													<span class="sound__singer">Lance Conrad</span>
+													<span class="sound__time">02:20</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #5 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Air</span>
+													<span class="sound__singer">Magiksolo</span>
+													<span class="sound__time">01:52</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #6 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Hot Damn</span>
+													<span class="sound__singer">Just for Kicks</span>
+													<span class="sound__time">00:30</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #7 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">The Street Beat</span>
+													<span class="sound__singer">Ikoliks</span>
+													<span class="sound__time">02:18</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #8 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Kissed by Aphrodite</span>
+													<span class="sound__singer">Skygaze</span>
+													<span class="sound__time">04:38</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #9 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Sequoia</span>
+													<span class="sound__singer">Daniel Brown</span>
+													<span class="sound__time">02:24</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #10 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Kalimat - Instrumental Version</span>
+													<span class="sound__singer">Tapash</span>
+													<span class="sound__time">02:27</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #11 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Juice</span>
+													<span class="sound__singer">Daniel Brown</span>
+													<span class="sound__time">01:55</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #12 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Carioca Breeze</span>
+													<span class="sound__singer">Donner & Tie</span>
+													<span class="sound__time">02:25</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #13 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Loose as a Goose</span>
+													<span class="sound__singer">Skygaze</span>
+													<span class="sound__time">03:08</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #14 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Put On Your Fire</span>
+													<span class="sound__singer">Cosmonkey</span>
+													<span class="sound__time">02:12</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #15 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Good Sport!</span>
+													<span class="sound__singer">Notize</span>
+													<span class="sound__time">01:28</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #16 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Flex <sup class="sound__uppercase">new</sup></span>
+													<span class="sound__singer">Yarin Primak</span>
+													<span class="sound__time">02:04</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #17 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">TUNNEL VISION <sup class="sound__uppercase">new</sup></span>
+													<span class="sound__singer">Frank Bentley, Anthony Mareo,
+														Wav Haven</span>
+													<span class="sound__time">02:18</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+
+										<!-- @sound-cell Zonk	 #1 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Into the Fire</span>
+													<span class="sound__singer">Ikoliks</span>
+													<span class="sound__time">01:36</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #2 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Monkey Business</span>
+													<span class="sound__singer">Dizzy</span>
+													<span class="sound__time">01:59</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #3 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Headbanger</span>
+													<span class="sound__singer">CustomMelody</span>
+													<span class="sound__time">02:43</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #4 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Bring It On</span>
+													<span class="sound__singer">The North</span>
+													<span class="sound__time">02:48</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #5 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Monster</span>
+													<span class="sound__singer">AlexGrohl</span>
+													<span class="sound__time">01:26</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #6 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Dominion <sup class="sound__uppercase">new</sup></span>
+													<span class="sound__singer">AlexGrohl</span>
+													<span class="sound__time">01:52</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #7 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Remember My Name (feat. Overtime)</span>
+													<span class="sound__singer">Jonezen</span>
+													<span class="sound__time">03:04</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #8 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Shook Up</span>
+													<span class="sound__singer">RocknStock</span>
+													<span class="sound__time">01:52</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #9 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Turn It Up - No Lead Vocals</span>
+													<span class="sound__singer">Guesthouse</span>
+													<span class="sound__time">02:14</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #10 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Your Strength</span>
+													<span class="sound__singer">AlexGrohl</span>
+													<span class="sound__time">02:32</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #11 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Eye of the Storm</span>
+													<span class="sound__singer">Ikoliks</span>
+													<span class="sound__time">02:39</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #12 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Run With It</span>
+													<span class="sound__singer">RocknStock</span>
+													<span class="sound__time">01:29</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #13 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Jet Stream</span>
+													<span class="sound__singer">Leva</span>
+													<span class="sound__time">02:31</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #14 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Blessed Day</span>
+													<span class="sound__singer">RocknStock</span>
+													<span class="sound__time">01:50</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #15 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Brutal Force</span>
+													<span class="sound__singer">Randy Sharp</span>
+													<span class="sound__time">01:21</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #16 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Shouting My Name</span>
+													<span class="sound__singer">Captain Qubz</span>
+													<span class="sound__time">02:26</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #17 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Joy Dealer <sup class="sound__uppercase">new</sup></span>
+													<span class="sound__singer">CustomMelody</span>
+													<span class="sound__time">01:57</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #18 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Rebellions</span>
+													<span class="sound__singer">AlexGrohl, MonaType</span>
+													<span class="sound__time">02:46</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #19 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Rebellions</span>
+													<span class="sound__singer">AlexGrohl, MonaType</span>
+													<span class="sound__time">02:46</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #20 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Bang Bang</span>
+													<span class="sound__singer">Where's LuLu?</span>
+													<span class="sound__time">02:29</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #21 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Elevate - Instrumental Version</span>
+													<span class="sound__singer">Katrina Stone</span>
+													<span class="sound__time">03:09</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+
+										<!-- *sound-cell Jumpscare  #1 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Escape Velocity</span>
+													<span class="sound__singer">TURPAK</span>
+													<span class="sound__time">02:39</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #2 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Escape Velocity</span>
+													<span class="sound__singer">Steven Beddall</span>
+													<span class="sound__time">02:39</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #3 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Earth</span>
+													<span class="sound__singer">Naama Zafran</span>
+													<span class="sound__time">01:54</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #4 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Unmistakable - Instrumental Version</span>
+													<span class="sound__singer">Beò, One Hour North</span>
+													<span class="sound__time">03:04</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #5 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">A Window to Your World</span>
+													<span class="sound__singer">Earth Tone</span>
+													<span class="sound__time">02:22</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #6 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Happiness</span>
+													<span class="sound__singer">Adrián Berenguer</span>
+													<span class="sound__time">03:16</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #7 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Happiness</span>
+													<span class="sound__singer">Roie Shpigler</span>
+													<span class="sound__time">03:11</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #8 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Da Vinci</span>
+													<span class="sound__singer">Ardie Son</span>
+													<span class="sound__time">02:48</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #9 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Reminiscence</span>
+													<span class="sound__singer">FableForte</span>
+													<span class="sound__time">02:57</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #10 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Reminiscence</span>
+													<span class="sound__singer">FableForte</span>
+													<span class="sound__time">02:57</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #11 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Hopeful <sup class="sound__uppercase">new</sup></span>
+													<span class="sound__singer">The David Roy Collective</span>
+													<span class="sound__time">03:24</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #12 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Miracle</span>
+													<span class="sound__singer">Roman P</span>
+													<span class="sound__time">02:04</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #13 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Home Journey</span>
+													<span class="sound__singer">Sémø, Ian Post</span>
+													<span class="sound__time">03:31</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #14 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Spirits</span>
+													<span class="sound__singer">Letra</span>
+													<span class="sound__time">02:49</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #15 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Against All Odds <sup class="sound__uppercase">new</sup></span>
+													<span class="sound__singer">Tiko Tiko</span>
+													<span class="sound__time">03:28</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!--*sound-cell #16 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">My Lord</span>
+													<span class="sound__singer">Yarin Primak</span>
+													<span class="sound__time">02:08</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #17 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Whistler Walking</span>
+													<span class="sound__singer">Patric Lemieux</span>
+													<span class="sound__time">02:10</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+
+										<!-- ?sound-cell Happiness 	 #1 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">God Damn</span>
+													<span class="sound__singer">Where's LuLu?</span>
+													<span class="sound__time">02:43</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #2 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">I'll Make It Work</span>
+													<span class="sound__singer">Flint</span>
+													<span class="sound__time">02:23</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #3 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Summer Dive</span>
+													<span class="sound__singer">Raz Burg</span>
+													<span class="sound__time">02:35</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #4 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">March of the Bold</span>
+													<span class="sound__singer">BalloonPlanet</span>
+													<span class="sound__time">02:41</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #5 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Sunny Daydreams</span>
+													<span class="sound__singer">Danny Shields</span>
+													<span class="sound__time">01:55</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #6 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">The Great Wild</span>
+													<span class="sound__singer">Out of Flux</span>
+													<span class="sound__time">01:47</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #7 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">I Owe It to You</span>
+													<span class="sound__singer">Gidon Schocken feat. Denitia</span>
+													<span class="sound__time">02:05</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #8 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Old Sneakers</span>
+													<span class="sound__singer">Cosmonkey</span>
+													<span class="sound__time">02:08</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #9 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">The Last Dance</span>
+													<span class="sound__singer">2050</span>
+													<span class="sound__time">03:42</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #10 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Waltz</span>
+													<span class="sound__singer">Sunny Fruit</span>
+													<span class="sound__time">00:48</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #11 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Pilot</span>
+													<span class="sound__singer">Supermans Feinde</span>
+													<span class="sound__time">03:52</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #12 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Groove It Forward</span>
+													<span class="sound__singer">Ziv Moran</span>
+													<span class="sound__time">01:57</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #13 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">I Owe It to You - Instrumental Version</span>
+													<span class="sound__singer">Gidon Schocken feat. Denitia</span>
+													<span class="sound__time">02:05</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #14 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Unbreakable Code</span>
+													<span class="sound__singer">Sam Lux</span>
+													<span class="sound__time">02:44</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #15 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Goals</span>
+													<span class="sound__singer">Rex Banner</span>
+													<span class="sound__time">02:25</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #16 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">I Am Good</span>
+													<span class="sound__singer">Alex MakeMusic</span>
+													<span class="sound__time">02:16</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #17 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Digital Horizon</span>
+													<span class="sound__singer">Toti Cisneros</span>
+													<span class="sound__time">02:25</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #18 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Unstoppable Drive</span>
+													<span class="sound__singer">BalloonPlanet</span>
+													<span class="sound__time">02:16</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #19 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Beat Blitz</span>
+													<span class="sound__singer">Sunny Fruit</span>
+													<span class="sound__time">01:31</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+
+									</div>
+									<button type="button" data-showmore-button="2000" class="sound__show-sound" aria-label="Button Collapse/Show More">
+										<span>See all sound effects</span>
+										<span>Collapse list</span>
+									</button>
+								</div>
+							</div>
+							<!-- *sounds-block Jumpscare #2 -->
+							<div class="tab-best__wrap-item" data-tabs-item>
+								<div id="happiness" class="tab-best__section sound" data-showmore="size">
+									<div class="sound__body" data-showmore-content="390">
+										<!-- *sound-cell Jumpscare  #1 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Escape Velocity</span>
+													<span class="sound__singer">TURPAK</span>
+													<span class="sound__time">02:39</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #2 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Escape Velocity</span>
+													<span class="sound__singer">Steven Beddall</span>
+													<span class="sound__time">02:39</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #3 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Earth</span>
+													<span class="sound__singer">Naama Zafran</span>
+													<span class="sound__time">01:54</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #4 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Unmistakable - Instrumental Version</span>
+													<span class="sound__singer">Beò, One Hour North</span>
+													<span class="sound__time">03:04</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #5 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">A Window to Your World</span>
+													<span class="sound__singer">Earth Tone</span>
+													<span class="sound__time">02:22</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #6 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Happiness</span>
+													<span class="sound__singer">Adrián Berenguer</span>
+													<span class="sound__time">03:16</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #7 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Happiness</span>
+													<span class="sound__singer">Roie Shpigler</span>
+													<span class="sound__time">03:11</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #8 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Da Vinci</span>
+													<span class="sound__singer">Ardie Son</span>
+													<span class="sound__time">02:48</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #9 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Reminiscence</span>
+													<span class="sound__singer">FableForte</span>
+													<span class="sound__time">02:57</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #10 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Reminiscence</span>
+													<span class="sound__singer">FableForte</span>
+													<span class="sound__time">02:57</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #11 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Hopeful <sup class="sound__uppercase">new</sup></span>
+													<span class="sound__singer">The David Roy Collective</span>
+													<span class="sound__time">03:24</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #12 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Miracle</span>
+													<span class="sound__singer">Roman P</span>
+													<span class="sound__time">02:04</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #13 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Home Journey</span>
+													<span class="sound__singer">Sémø, Ian Post</span>
+													<span class="sound__time">03:31</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #14 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Spirits</span>
+													<span class="sound__singer">Letra</span>
+													<span class="sound__time">02:49</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #15 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Against All Odds <sup class="sound__uppercase">new</sup></span>
+													<span class="sound__singer">Tiko Tiko</span>
+													<span class="sound__time">03:28</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!--*sound-cell #16 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">My Lord</span>
+													<span class="sound__singer">Yarin Primak</span>
+													<span class="sound__time">02:08</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- *sound-cell Jumpscare  #17 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Whistler Walking</span>
+													<span class="sound__singer">Patric Lemieux</span>
+													<span class="sound__time">02:10</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Jumpscare</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+									</div>
+									<button type="button" data-showmore-button="2000" class="sound__show-sound" aria-label="Button Collapse/Show More">
+										<span>See all sound effects</span>
+										<span>Collapse list</span>
+									</button>
+								</div>
+							</div>
+							<!-- *sounds-block Mellow #3 -->
+							<div class="tab-best__wrap-item" data-tabs-item>
+								<div class="tab-best__section sound" data-showmore="size">
+									<div class="sound__body" data-showmore-content="390">
+										<!-- $sound-cell Mellow	 #1 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Escape Velocity</span>
+													<span class="sound__singer">IamDayLight</span>
+													<span class="sound__time">01:41</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #2 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Cosmic Pulse</span>
+													<span class="sound__singer">Damon Power</span>
+													<span class="sound__time">01:46</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #3 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+
+												<div class="sound__info">
+													<span class="sound__track">Feel the Air</span>
+													<span class="sound__singer">Ikoliks</span>
+													<span class="sound__time">02:05</span>
+												</div>
+
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #4 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+
+												<div class="sound__info">
+													<span class="sound__track">Haymaker</span>
+													<span class="sound__singer">Steven Beddall</span>
+													<span class="sound__time">02:09</span>
+												</div>
+
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #5 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Out of My Head</span>
+													<span class="sound__singer">Letra</span>
+													<span class="sound__time">02:03</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #6 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Monkey Business</span>
+													<span class="sound__singer">Dizzy</span>
+													<span class="sound__time">01:59</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #7 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Break It Down</span>
+													<span class="sound__singer">Ben Fox</span>
+													<span class="sound__time">02:15</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #8 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">So Fresh</span>
+													<span class="sound__singer">Rex Banner</span>
+													<span class="sound__time">02:12</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #9 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Bass in Your Face</span>
+													<span class="sound__singer">SLPSTRM</span>
+													<span class="sound__time">02:32</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #10 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Galaxy Groove</span>
+													<span class="sound__singer">Yarin Primak</span>
+													<span class="sound__time">02:04</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #11 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Beat Blitz</span>
+													<span class="sound__singer">Rewind Kid</span>
+													<span class="sound__time">02:39</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #12 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Busy Day Ahead</span>
+													<span class="sound__singer">MooveKa</span>
+													<span class="sound__time">02:01</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #13 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Monkey Island</span>
+													<span class="sound__singer">Ziv Moran</span>
+													<span class="sound__time">02:03</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #14 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Slaptastic</span>
+													<span class="sound__singer">Steven Beddall</span>
+													<span class="sound__time">02:13</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow	 #15 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Beat Blitz</span>
+													<span class="sound__singer">Sunny Fruit</span>
+													<span class="sound__time">01:31</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- $sound-cell Mellow #16 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Astral Dance</span>
+													<span class="sound__singer">Jimit</span>
+													<span class="sound__time">03:01</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Mellow</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+									</div>
+									<button type="button" data-showmore-button="2000" class="sound__show-sound" aria-label="Button Collapse/Show More">
+										<span>See all sound effects</span>
+										<span>Collapse list</span>
+									</button>
+								</div>
+							</div>
+							<!-- *sounds-block Happiness #4 -->
+							<div class="tab-best__wrap-item" data-tabs-item>
+								<div class="tab-best__section sound" data-showmore="size">
+									<div class="sound__body" data-showmore-content="390">
+										<!-- ?sound-cell Happiness 	 #1 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">God Damn</span>
+													<span class="sound__singer">Where's LuLu?</span>
+													<span class="sound__time">02:43</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #2 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">I'll Make It Work</span>
+													<span class="sound__singer">Flint</span>
+													<span class="sound__time">02:23</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #3 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Summer Dive</span>
+													<span class="sound__singer">Raz Burg</span>
+													<span class="sound__time">02:35</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #4 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">March of the Bold</span>
+													<span class="sound__singer">BalloonPlanet</span>
+													<span class="sound__time">02:41</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #5 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Sunny Daydreams</span>
+													<span class="sound__singer">Danny Shields</span>
+													<span class="sound__time">01:55</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #6 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">The Great Wild</span>
+													<span class="sound__singer">Out of Flux</span>
+													<span class="sound__time">01:47</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #7 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">I Owe It to You</span>
+													<span class="sound__singer">Gidon Schocken feat. Denitia</span>
+													<span class="sound__time">02:05</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #8 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Old Sneakers</span>
+													<span class="sound__singer">Cosmonkey</span>
+													<span class="sound__time">02:08</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #9 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">The Last Dance</span>
+													<span class="sound__singer">2050</span>
+													<span class="sound__time">03:42</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #10 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Waltz</span>
+													<span class="sound__singer">Sunny Fruit</span>
+													<span class="sound__time">00:48</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #11 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Pilot</span>
+													<span class="sound__singer">Supermans Feinde</span>
+													<span class="sound__time">03:52</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #12 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Groove It Forward</span>
+													<span class="sound__singer">Ziv Moran</span>
+													<span class="sound__time">01:57</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #13 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">I Owe It to You - Instrumental Version</span>
+													<span class="sound__singer">Gidon Schocken feat. Denitia</span>
+													<span class="sound__time">02:05</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #14 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Unbreakable Code</span>
+													<span class="sound__singer">Sam Lux</span>
+													<span class="sound__time">02:44</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #15 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Goals</span>
+													<span class="sound__singer">Rex Banner</span>
+													<span class="sound__time">02:25</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #16 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">I Am Good</span>
+													<span class="sound__singer">Alex MakeMusic</span>
+													<span class="sound__time">02:16</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #17 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Digital Horizon</span>
+													<span class="sound__singer">Toti Cisneros</span>
+													<span class="sound__time">02:25</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #18 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Unstoppable Drive</span>
+													<span class="sound__singer">BalloonPlanet</span>
+													<span class="sound__time">02:16</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- ?sound-cell Happiness 	 #19 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Beat Blitz</span>
+													<span class="sound__singer">Sunny Fruit</span>
+													<span class="sound__time">01:31</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Happiness</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+									</div>
+									<button type="button" data-showmore-button="2000" class="sound__show-sound" aria-label="Button Collapse/Show More">
+										<span>See all sound effects</span>
+										<span>Collapse list</span>
+									</button>
+								</div>
+							</div>
+							<!-- *sounds-block Ambience #5 -->
+							<div class="tab-best__wrap-item" data-tabs-item>
+								<div class="tab-best__section sound" data-showmore="size">
+									<div class="sound__body" data-showmore-content="390">
+										<!-- !sound-cell Ambience	 #1 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Elevate</span>
+													<span class="sound__singer">Letra</span>
+													<span class="sound__time">02:40</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #2 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Culture Shock</span>
+													<span class="sound__singer">Lance Conrad</span>
+													<span class="sound__time">02:02</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #3 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">The Sun Is Out</span>
+													<span class="sound__singer">Seth Parson</span>
+													<span class="sound__time">03:04</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #4 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Poetry in Motion <sup class="sound__uppercase">new</sup></span>
+													<span class="sound__singer">Lance Conrad</span>
+													<span class="sound__time">02:20</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #5 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Air</span>
+													<span class="sound__singer">Magiksolo</span>
+													<span class="sound__time">01:52</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #6 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Hot Damn</span>
+													<span class="sound__singer">Just for Kicks</span>
+													<span class="sound__time">00:30</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #7 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">The Street Beat</span>
+													<span class="sound__singer">Ikoliks</span>
+													<span class="sound__time">02:18</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #8 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Kissed by Aphrodite</span>
+													<span class="sound__singer">Skygaze</span>
+													<span class="sound__time">04:38</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #9 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Sequoia</span>
+													<span class="sound__singer">Daniel Brown</span>
+													<span class="sound__time">02:24</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #10 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Kalimat - Instrumental Version</span>
+													<span class="sound__singer">Tapash</span>
+													<span class="sound__time">02:27</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #11 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Juice</span>
+													<span class="sound__singer">Daniel Brown</span>
+													<span class="sound__time">01:55</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #12 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Carioca Breeze</span>
+													<span class="sound__singer">Donner & Tie</span>
+													<span class="sound__time">02:25</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #13 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Loose as a Goose</span>
+													<span class="sound__singer">Skygaze</span>
+													<span class="sound__time">03:08</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #14 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Put On Your Fire</span>
+													<span class="sound__singer">Cosmonkey</span>
+													<span class="sound__time">02:12</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #15 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Good Sport!</span>
+													<span class="sound__singer">Notize</span>
+													<span class="sound__time">01:28</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #16 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Flex <sup class="sound__uppercase">new</sup></span>
+													<span class="sound__singer">Yarin Primak</span>
+													<span class="sound__time">02:04</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- !sound-cell Ambience	 #17 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">TUNNEL VISION <sup class="sound__uppercase">new</sup></span>
+													<span class="sound__singer">Frank Bentley, Anthony Mareo,
+														Wav Haven</span>
+													<span class="sound__time">02:18</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Ambience</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+									</div>
+									<button type="button" data-showmore-button="2000" class="sound__show-sound" aria-label="Button Collapse/Show More">
+										<span>See all sound effects</span>
+										<span>Collapse list</span>
+									</button>
+								</div>
+							</div>
+							<!-- *sounds-block Zonk #6 -->
+							<div class="tab-best__wrap-item" data-tabs-item>
+								<div class="tab-best__section sound" data-showmore="size">
+									<div class="sound__body" data-showmore-content="390">
+										<!-- @sound-cell Zonk	 #1 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Into the Fire</span>
+													<span class="sound__singer">Ikoliks</span>
+													<span class="sound__time">01:36</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #2 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Monkey Business</span>
+													<span class="sound__singer">Dizzy</span>
+													<span class="sound__time">01:59</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #3 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Headbanger</span>
+													<span class="sound__singer">CustomMelody</span>
+													<span class="sound__time">02:43</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #4 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Bring It On</span>
+													<span class="sound__singer">The North</span>
+													<span class="sound__time">02:48</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #5 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Monster</span>
+													<span class="sound__singer">AlexGrohl</span>
+													<span class="sound__time">01:26</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #6 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Dominion <sup class="sound__uppercase">new</sup></span>
+													<span class="sound__singer">AlexGrohl</span>
+													<span class="sound__time">01:52</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #7 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Remember My Name (feat. Overtime)</span>
+													<span class="sound__singer">Jonezen</span>
+													<span class="sound__time">03:04</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #8 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Shook Up</span>
+													<span class="sound__singer">RocknStock</span>
+													<span class="sound__time">01:52</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #9 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Turn It Up - No Lead Vocals</span>
+													<span class="sound__singer">Guesthouse</span>
+													<span class="sound__time">02:14</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #10 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Your Strength</span>
+													<span class="sound__singer">AlexGrohl</span>
+													<span class="sound__time">02:32</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #11 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Eye of the Storm</span>
+													<span class="sound__singer">Ikoliks</span>
+													<span class="sound__time">02:39</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #12 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Run With It</span>
+													<span class="sound__singer">RocknStock</span>
+													<span class="sound__time">01:29</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #13 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Jet Stream</span>
+													<span class="sound__singer">Leva</span>
+													<span class="sound__time">02:31</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #14 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Blessed Day</span>
+													<span class="sound__singer">RocknStock</span>
+													<span class="sound__time">01:50</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #15 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Brutal Force</span>
+													<span class="sound__singer">Randy Sharp</span>
+													<span class="sound__time">01:21</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #16 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Shouting My Name</span>
+													<span class="sound__singer">Captain Qubz</span>
+													<span class="sound__time">02:26</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #17 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Joy Dealer <sup class="sound__uppercase">new</sup></span>
+													<span class="sound__singer">CustomMelody</span>
+													<span class="sound__time">01:57</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #18 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Rebellions</span>
+													<span class="sound__singer">AlexGrohl, MonaType</span>
+													<span class="sound__time">02:46</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #19 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Rebellions</span>
+													<span class="sound__singer">AlexGrohl, MonaType</span>
+													<span class="sound__time">02:46</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #20 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Bang Bang</span>
+													<span class="sound__singer">Where's LuLu?</span>
+													<span class="sound__time">02:29</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+										<!-- @sound-cell Zonk	 #21 -->
+										<div class="sound__cell">
+
+											<div class="sound__inner-play">
+												<button type="button" class="sound__play-button">g</button>
+												<div class="sound__info">
+													<span class="sound__track">Elevate - Instrumental Version</span>
+													<span class="sound__singer">Katrina Stone</span>
+													<span class="sound__time">03:09</span>
+												</div>
+											</div>
+
+											<div class="sound__infotrack">
+												<div class="sound__desk-track">Confused excited crowd slight panic and distress</div>
+												<div class="sound__genre">Zonk</div>
+											</div>
+
+											<div class="sound__actions action">
+												<a href="#" class="action__like">f</a>
+												<a href="#" class="action__download">c</a>
+												<a href="#" class="action__more-info">j</a>
+											</div>
+										</div>
+									</div>
+									<button type="button" data-showmore-button="2000" class="sound__show-sound" aria-label="Button Collapse/Show More">
+										<span>See all sound effects</span>
+										<span>Collapse list</span>
+									</button>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</section>
+
 			<!--TODO Block SLIDES -->
-			<section class="slides slides--setup">
+			<section class="slides slides--setup" data-watch="navigator">
 				<div class="slides__container">
 
 					<div class="slider">
@@ -109,21 +4430,18 @@
 										<img src="img/production/netflix.svg" alt="Netflix" class="slider__pic" loading="lazy">
 									</div>
 								</div>
-
 								<!-- $Ticker-item #6-->
 								<div class="slider__item">
 									<div class="slider__shell">
 										<img src="img/production/picky_picks.svg" alt="Picky Picks" class="slider__pic" loading="lazy">
 									</div>
 								</div>
-
 								<!-- $Ticker-item #7-->
 								<div class="slider__item slider__item--pixar">
 									<div class="slider__shell slider__shell--pixar">
 										<img src="img/production/pixar.svg" alt="Pixar" class="slider__pic" loading="lazy">
 									</div>
 								</div>
-
 								<!-- $Ticker-item #8-->
 								<div class="slider__item slider__item--soundcloud">
 									<div class="slider__shell slider__shell--soundcloud">
@@ -181,230 +4499,261 @@
 			</section>
 
 			<!-- TODO Block CATEGORY -->
-			<section class="category category--options">
+			<section class="category category--options" data-watch="navigator">
 				<div class="category__container frame">
 					<h2 class="frame__title">Browse by category</h2>
 
 					<div class="frame__body">
-
+						<!-- $Card #1 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/animal.webp" alt="Animal" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Animal</p>
 							</div>
 						</div>
+						<!-- $Card #2 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/avant_garde.webp" alt="Avant Garde" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Avant Garde</p>
 							</div>
 						</div>
+						<!-- $Card #3 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/bell.webp" alt="Bell" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Bell</p>
 							</div>
 						</div>
+						<!-- $Card #4 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/blues.webp" alt="Blues" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Blues</p>
 							</div>
 						</div>
+						<!-- $Card #5 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/cartoon.webp" alt="Cartoon" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Cartoon</p>
 							</div>
 						</div>
+						<!-- $Card #6 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/classic.webp" alt="Classic" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Classic</p>
 							</div>
 						</div>
+						<!-- $Card #7 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/country.webp" alt="Country" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Country</p>
 							</div>
 						</div>
+						<!-- $Card #8 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/disco.webp" alt="Disco" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Disco</p>
 							</div>
 						</div>
+						<!-- $Card #9 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/dub.webp" alt="Dub" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Dub</p>
 							</div>
 						</div>
-
+						<!-- $Card #10 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/electronic.webp" alt="Electronic" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Electronic</p>
 							</div>
 						</div>
-
+						<!-- $Card #11 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/emergency.webp" alt="Emergency" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Emergency</p>
 							</div>
 						</div>
-
+						<!-- $Card #12 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/experimental.webp" alt="Experimental" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Experimental</p>
 							</div>
 						</div>
+						<!-- $Card #13 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/folk.webp" alt="Folk" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Folk</p>
 							</div>
 						</div>
+						<!-- $Card #14 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/hip_hop.webp" alt="Hip Hop" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Hip Hop</p>
 							</div>
 						</div>
+						<!-- $Card #15 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/historic.webp" alt="Historic" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Historic</p>
 							</div>
 						</div>
+						<!-- $Card #16 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/horror.webp" alt="Horror" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Horror</p>
 							</div>
 						</div>
+						<!-- $Card #17 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/industrial.webp" alt="Industrial" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Industrial</p>
 							</div>
 						</div>
+						<!-- $Card #18 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/instrumental.webp" alt="Instrumental" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Instrumental</p>
 							</div>
 						</div>
+						<!-- $Card #19 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/international.webp" alt="International" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>International</p>
 							</div>
 						</div>
+						<!-- $Card #20 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/jazz.webp" alt="Jazz" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Jazz</p>
 							</div>
 						</div>
+						<!-- $Card #21 -->
+						<div class="frame__wrap-cell">
+							<img src="img/category/vehicles.webp" alt="Vehicles" class="frame__trump" width="157" height="117" loading="lazy">
+							<div class="frame__desk">
+								<p>Vehicles</p>
+							</div>
+						</div>
+						<!-- $Card #22 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/movie_sound.webp" alt="Movie Sound" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Movie Sound</p>
 							</div>
 						</div>
+						<!-- $Card #23 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/musical.webp" alt="Musical" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Musical</p>
 							</div>
 						</div>
+						<!-- $Card #24 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/nature.webp" alt="Nature" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Nature</p>
 							</div>
 						</div>
+						<!-- $Card #25 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/novelty.webp" alt="Novelty" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Novelty</p>
 							</div>
 						</div>
+						<!-- $Card #26 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/pank.webp" alt="Pank" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Pank</p>
 							</div>
 						</div>
+						<!-- $Card #27 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/people.webp" alt="People" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>People</p>
 							</div>
 						</div>
+						<!-- $Card #28 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/pop.webp" alt="Pop" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Pop</p>
 							</div>
 						</div>
+						<!-- $Card #29 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/rap.webp" alt="Rap" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Rap</p>
 							</div>
 						</div>
+						<!-- $Card #30 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/reggae.webp" alt="Reggae" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Reggae</p>
 							</div>
 						</div>
+						<!-- $Card #31 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/relax.webp" alt="Relax" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Relax</p>
 							</div>
 						</div>
+						<!-- $Card #32 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/rock.webp" alt="Rock" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Rock</p>
 							</div>
 						</div>
-
+						<!-- $Card #33 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/rock_n_roll.webp" alt="Rock 'n' Roll" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Rock 'n' Roll</p>
 							</div>
 						</div>
+						<!-- $Card #34 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/soul-rnb.webp" alt=" Soul R&B" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p> Soul R&B</p>
 							</div>
 						</div>
+						<!-- $Card #35 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/sound_designs.webp" alt="Sound Designs" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Sound Designs</p>
 							</div>
 						</div>
+						<!-- $Card #36 -->
 						<div class="frame__wrap-cell">
 							<img src="img/category/spoken.webp" alt="Spoken" class="frame__trump" width="157" height="117" loading="lazy">
 							<div class="frame__desk">
 								<p>Spoken</p>
-							</div>
-						</div>
-						<div class="frame__wrap-cell">
-							<img src="img/category/vehicles.webp" alt="Vehicles" class="frame__trump" width="157" height="117" loading="lazy">
-							<div class="frame__desk">
-								<p>Vehicles</p>
 							</div>
 						</div>
 						<!-- *Item-Button -->
@@ -414,15 +4763,15 @@
 			</section>
 
 			<!-- TODO Block QUALITY -->
-			<section class="quality quality--setup">
+			<section class="quality quality--setup" data-watch="navigator">
 				<div class="quality__container">
 
 					<!-- @Text box -->
 					<div class="quality__text-box">
 						<h2 class="quality__caption">Why us?</h2>
-						<div class="quality__paragraph">
-							<p>We are provide the best quality sound effects without copyright.</p>
-						</div>
+						<h3 class="quality__title">
+							We are provide the best quality sound effects without copyright.
+						</h3>
 					</div>
 
 					<!-- @Flex box -->
@@ -477,7 +4826,7 @@
 			</section>
 
 			<!-- TODO Block DOWNLOAD -->
-			<section class="download download--setup">
+			<section class="download download--setup" data-watch="navigator">
 				<div class="download__holder">
 
 					<div class="download__text-desk">
@@ -530,7 +4879,7 @@
 			</section>
 
 			<!-- TODO Block TESTIMONIALS -->
-			<section class="testimonials testimonials--setup">
+			<section class="testimonials testimonials--setup" data-watch="navigator">
 				<div class="testimonials__container">
 					<div class="testimonials__text-block">
 						<h2 class="testimonials__caption">Testimonials</h2>
@@ -542,13 +4891,13 @@
 
 							<!-- *Slide #1 -->
 							<article class="testimonials__slide slide swiper-slide">
-								<div class="slide__label">a</div>
+								<div class="slide__label">b</div>
 
 								<div class="slide__paragraph">
 									<p>The sounds from WavesCo is great and it really helps our team to save time and production costs.</p>
 								</div>
 
-								<img src="img/testimonials/anne_joyce.webp" alt="Anne Joyce" class="slide__pic" width="70" height="70" ibg loading="lazy">
+								<img src="img/testimonials/anne_joyce.webp" alt="Anne Joyce" class="slide__pic" width="70" height="70" loading="lazy">
 
 								<div class="slide__desc-text">
 									<h3 class="slide__name">Anne Joyce</h3>
@@ -558,13 +4907,13 @@
 
 							<!-- *Slide #2 -->
 							<article class="testimonials__slide slide swiper-slide">
-								<div class="slide__label">a</div>
+								<div class="slide__label">b</div>
 
 								<div class="slide__paragraph">
 									<p>WavesCo was a great choice for our team for film production, the quality is amazingly great.</p>
 								</div>
 
-								<img src="img/testimonials/edward_sann.webp" alt="Edward Sann" class="slide__pic" width="70" height="70" ibg loading="lazy">
+								<img src="img/testimonials/edward_sann.webp" alt="Edward Sann" class="slide__pic" width="70" height="70" loading="lazy">
 
 								<div class="slide__desc-text">
 									<h3 class="slide__name">Edward Sann</h3>
@@ -574,14 +4923,14 @@
 
 							<!-- *Slide #3 -->
 							<article class="testimonials__slide slide swiper-slide">
-								<div class="slide__label">a</div>
+								<div class="slide__label">b</div>
 
 								<div class="slide__paragraph">
 									<p>Perfect way to get best quality sound effects for youtube videos. Thanks to WavesCo team.
 									</p>
 								</div>
 
-								<img src="img/testimonials/ron_d.webp" alt="Ronn D." class="slide__pic" width="70" height="70" ibg loading="lazy">
+								<img src="img/testimonials/ron_d.webp" alt="Ronn D." class="slide__pic" width="70" height="70" loading="lazy">
 
 								<div class="slide__desc-text">
 									<h3 class="slide__name">Ronn D.</h3>
@@ -591,14 +4940,14 @@
 
 							<!-- *Slide #4 -->
 							<article class="testimonials__slide slide swiper-slide">
-								<div class="slide__label">a</div>
+								<div class="slide__label">b</div>
 
 								<div class="slide__paragraph">
 									<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil quam odio eveniet est, explicabo tempora.
 									</p>
 								</div>
 
-								<img src="img/testimonials/anthony_summers.webp" alt="Anthony Summers" class="slide__pic" width="70" height="70" ibg loading="lazy">
+								<img src="img/testimonials/anthony_summers.webp" alt="Anthony Summers" class="slide__pic" width="70" height="70" loading="lazy">
 
 								<div class="slide__desc-text">
 									<h3 class="slide__name">Anthony Summers</h3>
@@ -608,14 +4957,14 @@
 
 							<!-- *Slide #5 -->
 							<article class="testimonials__slide slide swiper-slide">
-								<div class="slide__label">a</div>
+								<div class="slide__label">b</div>
 
 								<div class="slide__paragraph">
 									<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil quam odio eveniet est, explicabo tempora.
 									</p>
 								</div>
 
-								<img src="img/testimonials/claudia_davis.webp" alt="Claudia Davis" class="slide__pic" width="70" height="70" ibg loading="lazy">
+								<img src="img/testimonials/claudia_davis.webp" alt="Claudia Davis" class="slide__pic" width="70" height="70" loading="lazy">
 
 								<div class="slide__desc-text">
 									<h3 class="slide__name">Claudia Davis</h3>
@@ -625,14 +4974,14 @@
 
 							<!-- *Slide #6 -->
 							<article class="testimonials__slide slide swiper-slide">
-								<div class="slide__label">a</div>
+								<div class="slide__label">b</div>
 
 								<div class="slide__paragraph">
 									<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil quam odio eveniet est, explicabo tempora.
 									</p>
 								</div>
 
-								<img src="img/testimonials/eric_larson.webp" alt="Claudia Davis" class="slide__pic" width="70" height="70" ibg loading="lazy">
+								<img src="img/testimonials/eric_larson.webp" alt="Claudia Davis" class="slide__pic" width="70" height="70" loading="lazy">
 
 								<div class="slide__desc-text">
 									<h3 class="slide__name">Claudia Davis</h3>
@@ -642,14 +4991,14 @@
 
 							<!-- *Slide #7 -->
 							<article class="testimonials__slide slide swiper-slide">
-								<div class="slide__label">a</div>
+								<div class="slide__label">b</div>
 
 								<div class="slide__paragraph">
 									<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil quam odio eveniet est, explicabo tempora.
 									</p>
 								</div>
 
-								<img src="img/testimonials/karina_mirton.webp" alt="Karina Mirton" class="slide__pic" width="70" height="70" ibg loading="lazy">
+								<img src="img/testimonials/karina_mirton.webp" alt="Karina Mirton" class="slide__pic" width="70" height="70" loading="lazy">
 
 								<div class="slide__desc-text">
 									<h3 class="slide__name">Karina Mirton</h3>
@@ -659,14 +5008,14 @@
 
 							<!-- *Slide #8 -->
 							<article class="testimonials__slide slide swiper-slide">
-								<div class="slide__label">a</div>
+								<div class="slide__label">b</div>
 
 								<div class="slide__paragraph">
 									<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil quam odio eveniet est, explicabo tempora.
 									</p>
 								</div>
 
-								<img src="img/testimonials/miranda_bloom.webp" alt="Miranda Bloom" class="slide__pic" width="70" height="70" ibg loading="lazy">
+								<img src="img/testimonials/miranda_bloom.webp" alt="Miranda Bloom" class="slide__pic" width="70" height="70" loading="lazy">
 
 								<div class="slide__desc-text">
 									<h3 class="slide__name">Karina Mirton</h3>
@@ -676,14 +5025,14 @@
 
 							<!-- *Slide #9 -->
 							<article class="testimonials__slide slide swiper-slide">
-								<div class="slide__label">a</div>
+								<div class="slide__label">b</div>
 
 								<div class="slide__paragraph">
 									<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil quam odio eveniet est, explicabo tempora.
 									</p>
 								</div>
 
-								<img src="img/testimonials/steven_santiago.webp" alt="Steven Santiago" class="slide__pic" width="70" height="70" ibg loading="lazy">
+								<img src="img/testimonials/steven_santiago.webp" alt="Steven Santiago" class="slide__pic" width="70" height="70" loading="lazy">
 
 								<div class="slide__desc-text">
 									<h3 class="slide__name">Steven Santiago</h3>
@@ -693,14 +5042,14 @@
 
 							<!-- *Slide #10 -->
 							<article class="testimonials__slide slide swiper-slide">
-								<div class="slide__label">a</div>
+								<div class="slide__label">b</div>
 
 								<div class="slide__paragraph">
 									<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil quam odio eveniet est, explicabo tempora.
 									</p>
 								</div>
 
-								<img src="img/testimonials/terri_marshall.webp" alt="Terri Marshall" class="slide__pic" width="70" height="70" ibg loading="lazy">
+								<img src="img/testimonials/terri_marshall.webp" alt="Terri Marshall" class="slide__pic" width="70" height="70" loading="lazy">
 
 								<div class="slide__desc-text">
 									<h3 class="slide__name">Terri Marshall</h3>
@@ -802,7 +5151,8 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20240608151324"></script>
+	<script src="js/app.min.js?_v=20240616232836"></script>
+
 </body>
 
 </html>
