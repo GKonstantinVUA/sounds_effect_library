@@ -57,7 +57,7 @@
   --fontFamilyIcons: "IconsFonts";
   --fontBlueBg: #000000;
   --fontTitle: #020D37;
-  --fontSubTitle: #F59E00;
+  --fontSubTitle: #ff4800;
   --fontSubText: #ACAFB8;
   --fontBlSectionHero: #EEEEEE;
   --fontMenu: #FFFFFF;
@@ -1124,6 +1124,8 @@ body {
   position: relative;
   border-radius: .5rem;
   overflow: clip;
+  display: block;
+  aspect-ratio: 157/117;
   padding: 2.6875rem 0;
   z-index: 1;
   -webkit-transform: scale(1);
