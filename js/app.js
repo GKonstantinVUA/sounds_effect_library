@@ -6428,13 +6428,9 @@
                 nextEl: ".tab-best__button-next-swiper"
             },
             breakpoints: {
-                100: {
-                    slidesPerView: 3,
-                    spaceBetween: 10
-                },
-                450: {
-                    slidesPerView: 3,
-                    spaceBetween: 30
+                10: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
                 },
                 500: {
                     slidesPerView: 4,
@@ -6614,55 +6610,79 @@
     root.style.setProperty("--marquee-elements", marqueeContent.children.length);
     for (let i = 0; i < marqueeElementsDisplayed; i++) marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
     document.addEventListener("DOMContentLoaded", (function() {
-        const itemsToShow = 12;
- //!Можна вказати скільки скільки потрібно відображати за замовчуванням
-                const itemArea = document.querySelectorAll(".frame__wrap-cell");
-        const showMoreBtn = document.querySelector(".frame__show-more");
-        const container = document.querySelector(".frame__body");
-        if (!container || !showMoreBtn || itemArea.length === 0) return;
- //!Перевірка на елементи які фактично відсутні
-                let itemsShown = itemsToShow;
- //! Початкова кількість показаних елементів
-                function toggleItems() {
-            if (window.innerWidth <= 5e3) //! Вказати розмір до якого не буде реалізації Показати Ще/Сховати 
-            showMoreBtn.style.display = "block"; //! Показує кнопку, якщо розмір вікна менше ?px
-             else showMoreBtn.style.display = "none";
- //! Приховує кнопку, якщо розмір вікна більше ?px
-                        if (window.innerWidth <= 5e3) //!Вказати який підходить розмір для приховування 
+        const breakpoints = [ {
+            width: 991.98,
+            itemsToShow: 12,
+            itemsToShowOnClick: 6
+        }, {
+            width: 767.98,
+            itemsToShow: 8,
+            itemsToShowOnClick: 4
+        }, {
+            width: 50,
+            itemsToShow: 6,
+            itemsToShowOnClick: 4
+        } ];
+        const itemArea = document.querySelectorAll(".frame__wrap-cell");
+ //!комырка зі слайдом
+                const showMoreBtn = document.querySelector(".frame__show-more");
+ //!кнопкак для розгортання
+                const container = document.querySelector(".frame__body");
+ //! внутрішня обготка зі слайдами без урахування зовнішньої обгортки в якій знаходитьс //#кнопка для розгортання
+                if (!container || !showMoreBtn || itemArea.length === 0) return;
+        function getItemsToShow(width) {
+            for (const bp of breakpoints) if (width >= bp.width) return bp.itemsToShow;
+            return 1;
+        }
+        function getItemsToShowOnClick(width) {
+            for (const bp of breakpoints) if (width >= bp.width) return bp.itemsToShowOnClick;
+            return 1;
+        }
+        let itemsToShow = getItemsToShow(window.innerWidth);
+        let itemsShown = itemsToShow;
+        function toggleItems() {
             itemArea.forEach(((item, index) => {
-                if (index < itemsShown) item.style.display = "flex"; //! Показуємо елемент якщо потрібний flex, grid вказати flex/grid
-                 else item.style.display = "none";
- //! Ховається елемент
-                        })); else itemArea.forEach((item => {
-                item.style.display = " flex";
- //! Відображається елемент якщо потрібний flex/grid. Вказати flex/grid
-                        }));
-            //! Перевірка, чи всі елементи вже відображені. Відповідно змінюється текст кнопки 
-                        if (itemsShown === itemArea.length) showMoreBtn.textContent = "Collapse"; //!Додається клас коли картки закінчились
-             else showMoreBtn.textContent = "See more category";
- //!Клас коли потрібно відорбажати картки
+                if (index < itemsShown) {
+                    item.style.display = "block";
+                    setTimeout((() => {
+                        item.style.opacity = 1;
+                    }), 15);
+                } else {
+                    item.style.opacity = 0;
+                    setTimeout((() => {
+                        item.style.display = "none";
+                    }), 15);
                 }
-        toggleItems();
- //! Викликаємо перевірку вікна при завантаженні сторінки
-                showMoreBtn.addEventListener("click", (function() {
-            if (itemsShown >= itemArea.length) 
-            //! Якщо всі елементи вже видимі, ховаємо їх по одному, починаючи з останнього
-            itemsShown = itemsToShow; else 
-            //! Якщо ще є елементи, які не відображені, показуємо наступні елементи
-            itemsShown = Math.min(itemsShown + 6, itemArea.length);
+            }));
+            if (itemsShown >= itemArea.length) showMoreBtn.textContent = "Collapse"; else showMoreBtn.textContent = "See more category";
+        }
+        function handleResize() {
+            itemsToShow = getItemsToShow(window.innerWidth);
+            itemsShown = itemsToShow;
             toggleItems();
-            //! Прокрутка до останнього показаного елемента
-                        if (itemsShown <= itemArea.length) itemArea[itemsShown - 1].scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
+        }
+        window.addEventListener("resize", handleResize);
+        toggleItems();
+        showMoreBtn.addEventListener("click", (function() {
+            const itemsToShowOnClick = getItemsToShowOnClick(window.innerWidth);
+            if (itemsShown >= itemArea.length) {
+                itemsShown = itemsToShow;
+                toggleItems();
+            } else {
+                itemsShown = Math.min(itemsShown + itemsToShowOnClick, itemArea.length);
+                toggleItems();
+            }
+            setTimeout((() => {
+                showMoreBtn.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+            }), 6e3);
         }));
-        window.addEventListener("resize", toggleItems);
- //!Викликаємо перевірку вікна при зміні розміру вікна
-        }));
+    }));
     window.onscroll = () => {
         let header = document.querySelector("header");
-        header.classList.toggle("sticky", window.scrollY > 640);
+        header.classList.toggle("sticky", window.scrollY > 140);
     };
     let loginPopup = document.getElementById("login");
     let registerPopup = document.getElementById("register");

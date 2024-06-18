@@ -649,6 +649,10 @@ body {
   color: var(--fontBlSectionHero);
   row-gap: 3.1875rem
 }
+.hero__text-desk {
+  display: flex;
+  flex-direction: column
+}
 .hero__main-title {
   font-family: var(--fontFamilySub);
   font-size: clamp(1.25rem,.806rem + 2.22vw,2.25rem);
@@ -1157,12 +1161,18 @@ body {
 .frame__desk {
   position: relative;
   margin: 0 auto;
+  text-align: center;
   z-index: 3;
   color: var(--fontBlSectionHero);
-  font-size: 18px;
+  font-size: clamp(1rem,.911rem + .45vw,1.125rem);
   font-weight: 600;
   line-height: 1.72;
   letter-spacing: -.05625rem;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
   transition: color .25s ease-in
 }
 .frame__show-more {
