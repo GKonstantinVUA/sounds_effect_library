@@ -1648,11 +1648,6 @@ body {
     --headerHightMobile: 3.125rem
   }
 }
-@media (max-width:62.5em) {
-  .hero__container {
-    padding: 18.125rem 1.875rem 18.125rem .9375rem
-  }
-}
 @media (max-width:61.99875em) {
   .menu__body {
     position: fixed;
@@ -1738,6 +1733,9 @@ body {
     max-width: 17.5rem;
     width: 100%;
     font-size: 1.375rem
+  }
+  .hero__container {
+    padding: 9.375rem 1.875rem 9.375rem .9375rem
   }
   .reason--option {
     flex: 0 1 100%
