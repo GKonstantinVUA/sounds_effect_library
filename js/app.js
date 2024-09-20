@@ -6413,34 +6413,21 @@
             },
             on: {}
         });
-        if (document.querySelector(".swipertab")) new swiper_core_Swiper(".swipertab", {
+        if (document.querySelector(".tab-best__slider")) new swiper_core_Swiper(".tab-best__slider", {
             modules: [ Navigation ],
             observer: true,
             observeParents: true,
             speed: 800,
-            spaceBetween: 10,
+            spaceBetween: 40,
             //!За замовчуванням (задокументовано)
-            slidesPerView: 3,
+            slidesPerView: "auto",
             //!По замовчуванням (задокументовано)
             pagination: {},
             navigation: {
                 prevEl: ".tab-best__button-prev-swiper",
                 nextEl: ".tab-best__button-next-swiper"
             },
-            breakpoints: {
-                10: {
-                    slidesPerView: 2,
-                    spaceBetween: 20
-                },
-                500: {
-                    slidesPerView: 4,
-                    spaceBetween: 30
-                },
-                610: {
-                    slidesPerView: 5,
-                    spaceBetween: 20
-                }
-            },
+            breakpoints: {},
             on: {}
         });
     }

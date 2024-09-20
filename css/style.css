@@ -774,23 +774,6 @@ body {
 .tab-best__title:not(:last-child) {
   margin-bottom: .8571428571em
 }
-.tab-best__slider.swipertab {
-  margin-left: 0;
-  margin-right: auto;
-  position: relative;
-  overflow: hidden;
-  list-style: none;
-  padding: 0;
-  z-index: 1;
-  max-width: 760px
-}
-.tab-best__navigation-btn.swiper-wrapper {
-  display: flex;
-  justify-content: flex-start;
-  -webkit-column-gap: 2.5rem;
-  -moz-column-gap: 2.5rem;
-  column-gap: 2.5rem
-}
 .tab-best__navigation-btn.swiper-wrapper:not(:last-child) {
   margin-bottom: 2.125rem
 }
@@ -1592,7 +1575,7 @@ body {
   }
 }
 @media (min-width:768px) {
-  .tab-best__slider.swipertab {
+  .tab-best__slider {
     padding: 0 24px
   }
 }
@@ -1786,7 +1769,7 @@ body {
   }
 }
 @media (max-width:42.5em) {
-  .tab-best__slider.swipertab {
+  .tab-best__slider {
     margin-bottom: 1.125rem
   }
   .tab-best__btn-best-inner .swiper-button-lock {
